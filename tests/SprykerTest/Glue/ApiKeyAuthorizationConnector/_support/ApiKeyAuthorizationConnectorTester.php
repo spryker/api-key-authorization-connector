@@ -96,9 +96,6 @@ class ApiKeyAuthorizationConnectorTester extends Actor
      */
     protected const NOT_EXPIRED_API_KEY_HASH = 'fe4f0f707a786f2b4b5977cb49b2348d0fcb40dd5840a0ea4332c4af337e0c35';
 
-    /**
-     * @return void
-     */
     public function createFakeApiKeyRecord(): void
     {
         (new SpyApiKey())->setName(static::FOO_KEY_NAME)
@@ -107,9 +104,6 @@ class ApiKeyAuthorizationConnectorTester extends Actor
             ->save();
     }
 
-    /**
-     * @return void
-     */
     public function createFakeExpiredApiKeyRecord(): void
     {
         (new SpyApiKey())->setName(static::EXPIRED_KEY_NAME)
@@ -119,9 +113,6 @@ class ApiKeyAuthorizationConnectorTester extends Actor
             ->save();
     }
 
-    /**
-     * @return void
-     */
     public function createFakeNoExpiredApiKeyRecord(): void
     {
         (new SpyApiKey())->setName(static::NOT_EXPIRED_KEY_NAME)
@@ -131,9 +122,6 @@ class ApiKeyAuthorizationConnectorTester extends Actor
             ->save();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\AuthorizationRequestTransfer
-     */
     public function getAuthorizationRequestTransferWithIdentity(): AuthorizationRequestTransfer
     {
         $identityTransfer = new AuthorizationIdentityTransfer();
@@ -142,17 +130,11 @@ class ApiKeyAuthorizationConnectorTester extends Actor
             ->setIdentity($identityTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     public function getGlueRequestTransfer(): GlueRequestTransfer
     {
         return new GlueRequestTransfer();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     public function getGlueRequestWithApiKeyHeader(): GlueRequestTransfer
     {
         $glueRequestTransfer = $this->getGlueRequestTransfer();
@@ -163,11 +145,6 @@ class ApiKeyAuthorizationConnectorTester extends Actor
         return $glueRequestTransfer;
     }
 
-    /**
-     * @param string $apiKey
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     public function getGlueRequestWithApiKeyQueryParam(string $apiKey): GlueRequestTransfer
     {
         $glueRequestTransfer = $this->getGlueRequestTransfer();
@@ -178,9 +155,6 @@ class ApiKeyAuthorizationConnectorTester extends Actor
         return $glueRequestTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     public function getGlueRequestWithExpiredApiKeyQueryParam(): GlueRequestTransfer
     {
         $glueRequestTransfer = $this->getGlueRequestTransfer();
@@ -191,9 +165,6 @@ class ApiKeyAuthorizationConnectorTester extends Actor
         return $glueRequestTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     public function getGlueRequestWithNoExpiredApiKeyQueryParam(): GlueRequestTransfer
     {
         $glueRequestTransfer = $this->getGlueRequestTransfer();
@@ -204,9 +175,6 @@ class ApiKeyAuthorizationConnectorTester extends Actor
         return $glueRequestTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     public function getGlueRequestWithWrongApiKey(): GlueRequestTransfer
     {
         $glueRequestTransfer = $this->getGlueRequestTransfer();

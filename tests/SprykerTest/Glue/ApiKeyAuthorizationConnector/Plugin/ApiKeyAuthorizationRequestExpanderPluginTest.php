@@ -27,9 +27,6 @@ class ApiKeyAuthorizationRequestExpanderPluginTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -39,9 +36,6 @@ class ApiKeyAuthorizationRequestExpanderPluginTest extends Unit
         $this->tester->createFakeNoExpiredApiKeyRecord();
     }
 
-    /**
-     * @return void
-     */
     public function testIdentifierIsSetWhenPresentInRequestHeader(): void
     {
         //Arrange
@@ -56,9 +50,6 @@ class ApiKeyAuthorizationRequestExpanderPluginTest extends Unit
         $this->assertNotNull($authorizationRequestTransfer->getIdentityOrFail()->getApiKeyIdentifier());
     }
 
-    /**
-     * @return void
-     */
     public function testIdentifierIsSetWhenPresentInRequestQueryParam(): void
     {
         //Arrange
@@ -73,9 +64,6 @@ class ApiKeyAuthorizationRequestExpanderPluginTest extends Unit
         $this->assertNotNull($authorizationRequestTransfer->getIdentityOrFail()->getApiKeyIdentifier());
     }
 
-    /**
-     * @return void
-     */
     public function testIdentifierNotSetWhenWrongInRequest(): void
     {
         //Arrange
@@ -90,9 +78,6 @@ class ApiKeyAuthorizationRequestExpanderPluginTest extends Unit
         $this->assertNull($authorizationRequestTransfer->getIdentityOrFail()->getApiKeyIdentifier());
     }
 
-    /**
-     * @return void
-     */
     public function testIdentifierNotSetWhenNotInRequest(): void
     {
         //Arrange
@@ -107,9 +92,6 @@ class ApiKeyAuthorizationRequestExpanderPluginTest extends Unit
         $this->assertNull($authorizationRequestTransfer->getIdentityOrFail()->getApiKeyIdentifier());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandWithExpiredKeyWillReturnEmptyIdentifier(): void
     {
         //Arrange
@@ -124,9 +106,6 @@ class ApiKeyAuthorizationRequestExpanderPluginTest extends Unit
         $this->assertNull($authorizationRequestTransfer->getIdentityOrFail()->getApiKeyIdentifier());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandWithNotExpiredKeyWillReturnIdentifier(): void
     {
         //Arrange
@@ -141,9 +120,6 @@ class ApiKeyAuthorizationRequestExpanderPluginTest extends Unit
         $this->assertNotNull($authorizationRequestTransfer->getIdentityOrFail()->getApiKeyIdentifier());
     }
 
-    /**
-     * @return \Spryker\Glue\ApiKeyAuthorizationConnector\Plugin\GlueBackendApiApplicationAuthorizationConnector\ApiKeyAuthorizationRequestExpanderPlugin
-     */
     protected function getApiKeyAuthorizationRequestExpanderPlugin(): ApiKeyAuthorizationRequestExpanderPlugin
     {
         return new ApiKeyAuthorizationRequestExpanderPlugin();

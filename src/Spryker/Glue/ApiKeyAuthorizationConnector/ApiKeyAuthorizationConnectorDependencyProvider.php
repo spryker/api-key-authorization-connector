@@ -21,11 +21,6 @@ class ApiKeyAuthorizationConnectorDependencyProvider extends AbstractBundleDepen
      */
     public const FACADE_API_KEY = 'FACADE_API_KEY';
 
-    /**
-     * @param \Spryker\Glue\Kernel\Backend\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Backend\Container
-     */
     public function provideBackendDependencies(Container $container): Container
     {
         $container = parent::provideBackendDependencies($container);
@@ -34,11 +29,6 @@ class ApiKeyAuthorizationConnectorDependencyProvider extends AbstractBundleDepen
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Backend\Container$container
-     *
-     * @return \Spryker\Glue\Kernel\Backend\Container
-     */
     protected function addApiKeyFacade(Container $container): Container
     {
         $container->set(static::FACADE_API_KEY, function (Container $container) {

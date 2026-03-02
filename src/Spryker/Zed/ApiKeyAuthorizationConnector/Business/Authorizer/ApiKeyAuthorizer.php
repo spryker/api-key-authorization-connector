@@ -24,10 +24,6 @@ class ApiKeyAuthorizer implements ApiKeyAuthorizerInterface
      */
     protected ApiKeyAuthorizationLoggerInterface $logger;
 
-    /**
-     * @param \Spryker\Zed\ApiKeyAuthorizationConnector\ApiKeyAuthorizationConnectorConfig $config
-     * @param \Spryker\Zed\ApiKeyAuthorizationConnector\Business\Logger\ApiKeyAuthorizationLoggerInterface $logger
-     */
     public function __construct(
         ApiKeyAuthorizationConnectorConfig $config,
         ApiKeyAuthorizationLoggerInterface $logger
@@ -36,11 +32,6 @@ class ApiKeyAuthorizer implements ApiKeyAuthorizerInterface
         $this->logger = $logger;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AuthorizationRequestTransfer $authorizationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\AuthorizationResponseTransfer
-     */
     public function authorize(AuthorizationRequestTransfer $authorizationRequestTransfer): AuthorizationResponseTransfer
     {
         $authorizationResponsetTransfer = (new AuthorizationResponseTransfer())->setIsAuthorized(false);
@@ -55,12 +46,6 @@ class ApiKeyAuthorizer implements ApiKeyAuthorizerInterface
         return $authorizationResponsetTransfer->setIsAuthorized(true);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AuthorizationRequestTransfer $authorizationRequestTransfer
-     * @param string $apiKeyIdentifier
-     *
-     * @return void
-     */
     protected function logAppliedKeyName(AuthorizationRequestTransfer $authorizationRequestTransfer, string $apiKeyIdentifier): void
     {
         if (!$this->config->isLoggingEnabled()) {

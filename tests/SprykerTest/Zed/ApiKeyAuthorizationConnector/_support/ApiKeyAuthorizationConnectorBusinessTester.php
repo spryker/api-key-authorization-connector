@@ -40,9 +40,6 @@ class ApiKeyAuthorizationConnectorBusinessTester extends Actor
      */
     protected const FOO_KEY = 'test';
 
-    /**
-     * @return \Generated\Shared\Transfer\AuthorizationRequestTransfer
-     */
     public function getAuthorizationRequestTransferWithCorrectIdentity(): AuthorizationRequestTransfer
     {
         $identityTransfer = (new AuthorizationIdentityTransfer())
@@ -51,9 +48,6 @@ class ApiKeyAuthorizationConnectorBusinessTester extends Actor
         return $this->createAuthorizationRequestTransfer($identityTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\AuthorizationRequestTransfer
-     */
     public function getAuthorizationRequestTransferWithIncorrectIdentity(): AuthorizationRequestTransfer
     {
         $identityTransfer = (new AuthorizationIdentityTransfer())
@@ -62,9 +56,6 @@ class ApiKeyAuthorizationConnectorBusinessTester extends Actor
         return $this->createAuthorizationRequestTransfer($identityTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\AuthorizationRequestTransfer
-     */
     public function getAuthorizationRequestTransferWithoutIdentifier(): AuthorizationRequestTransfer
     {
         $identityTransfer = new AuthorizationIdentityTransfer();
@@ -80,11 +71,6 @@ class ApiKeyAuthorizationConnectorBusinessTester extends Actor
         return new ApiKeyAuthorizationConnectorFacade();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AuthorizationIdentityTransfer $identityTransfer
-     *
-     * @return \Generated\Shared\Transfer\AuthorizationRequestTransfer
-     */
     protected function createAuthorizationRequestTransfer(
         AuthorizationIdentityTransfer $identityTransfer
     ): AuthorizationRequestTransfer {

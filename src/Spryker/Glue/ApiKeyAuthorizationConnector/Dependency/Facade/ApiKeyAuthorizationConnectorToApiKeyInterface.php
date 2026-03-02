@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\ApiKeyCriteriaTransfer;
 
 interface ApiKeyAuthorizationConnectorToApiKeyInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ApiKeyCriteriaTransfer $apiKeyCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ApiKeyCollectionTransfer
-     */
     public function getApiKeyCollection(ApiKeyCriteriaTransfer $apiKeyCriteriaTransfer): ApiKeyCollectionTransfer;
 }

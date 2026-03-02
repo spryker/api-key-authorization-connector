@@ -28,9 +28,6 @@ class ApiKeyAuthorizationConnectorFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testAuthorizeReturnsTrueWhenIdentityIsCorrect(): void
     {
         //Arrange
@@ -43,9 +40,6 @@ class ApiKeyAuthorizationConnectorFacadeTest extends Unit
         $this->assertTrue($authorizationResponseTransfer->getIsAuthorized());
     }
 
-    /**
-     * @return void
-     */
     public function testAuthorizeReturnsTrueWhenIdentityIsNotCorrect(): void
     {
         //Arrange

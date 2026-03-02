@@ -11,11 +11,5 @@ use Generated\Shared\Transfer\AuthorizationRequestTransfer;
 
 interface ApiKeyAuthorizationLoggerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\AuthorizationRequestTransfer $authorizationRequestTransfer
-     * @param string $apiKey
-     *
-     * @return void
-     */
     public function logInfo(AuthorizationRequestTransfer $authorizationRequestTransfer, string $apiKey): void;
 }

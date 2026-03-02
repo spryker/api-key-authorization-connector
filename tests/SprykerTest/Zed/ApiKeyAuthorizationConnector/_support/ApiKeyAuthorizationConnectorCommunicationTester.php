@@ -38,9 +38,6 @@ class ApiKeyAuthorizationConnectorCommunicationTester extends Actor
      */
     protected const FOO_KEY = 'test';
 
-    /**
-     * @return \Generated\Shared\Transfer\AuthorizationRequestTransfer
-     */
     public function getAuthorizationRequestTransferWithIdentity(): AuthorizationRequestTransfer
     {
         $identityTransfer = (new AuthorizationIdentityTransfer())
@@ -50,9 +47,6 @@ class ApiKeyAuthorizationConnectorCommunicationTester extends Actor
             ->setIdentity($identityTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\AuthorizationRequestTransfer
-     */
     public function getAuthorizationRequestTransferWithoutIdentifier(): AuthorizationRequestTransfer
     {
         $identityTransfer = new AuthorizationIdentityTransfer();

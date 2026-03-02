@@ -37,20 +37,11 @@ class ApiKeyAuthorizationLogger implements ApiKeyAuthorizationLoggerInterface
      */
     protected ?LoggerInterface $logger;
 
-    /**
-     * @param \Psr\Log\LoggerInterface|null $logger
-     */
     public function __construct(?LoggerInterface $logger)
     {
         $this->logger = $logger;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AuthorizationRequestTransfer $authorizationRequestTransfer
-     * @param string $apiKey
-     *
-     * @return void
-     */
     public function logInfo(AuthorizationRequestTransfer $authorizationRequestTransfer, string $apiKey): void
     {
         if ($this->logger === null) {
@@ -62,13 +53,6 @@ class ApiKeyAuthorizationLogger implements ApiKeyAuthorizationLoggerInterface
         $this->logger->info($message);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AuthorizationRequestTransfer $authorizationRequestTransfer
-     * @param string $messagePlaceholder
-     * @param string $apiKey
-     *
-     * @return string
-     */
     protected function buildLogMessage(
         AuthorizationRequestTransfer $authorizationRequestTransfer,
         string $messagePlaceholder,

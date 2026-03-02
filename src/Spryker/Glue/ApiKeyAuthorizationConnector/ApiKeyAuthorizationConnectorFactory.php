@@ -17,9 +17,6 @@ use Spryker\Glue\Kernel\Backend\AbstractFactory;
  */
 class ApiKeyAuthorizationConnectorFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Glue\ApiKeyAuthorizationConnector\Expander\ApiKeyAuthorizationRequestExpanderInterface
-     */
     public function createApiKeyAuthorizationRequestExpander(): ApiKeyAuthorizationRequestExpanderInterface
     {
         return new ApiKeyAuthorizationRequestExpander(
@@ -28,9 +25,6 @@ class ApiKeyAuthorizationConnectorFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\ApiKeyAuthorizationConnector\Dependency\Facade\ApiKeyAuthorizationConnectorToApiKeyInterface
-     */
     public function getApiKeyFacade(): ApiKeyAuthorizationConnectorToApiKeyInterface
     {
         return $this->getProvidedDependency(ApiKeyAuthorizationConnectorDependencyProvider::FACADE_API_KEY);

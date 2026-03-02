@@ -33,10 +33,6 @@ class ApiKeyAuthorizationRequestExpander implements ApiKeyAuthorizationRequestEx
      */
     protected ApiKeyAuthorizationConnectorConfig $config;
 
-    /**
-     * @param \Spryker\Glue\ApiKeyAuthorizationConnector\Dependency\Facade\ApiKeyAuthorizationConnectorToApiKeyInterface $apiKeyFacade
-     * @param \Spryker\Glue\ApiKeyAuthorizationConnector\ApiKeyAuthorizationConnectorConfig $config
-     */
     public function __construct(
         ApiKeyAuthorizationConnectorToApiKeyInterface $apiKeyFacade,
         ApiKeyAuthorizationConnectorConfig $config
@@ -45,12 +41,6 @@ class ApiKeyAuthorizationRequestExpander implements ApiKeyAuthorizationRequestEx
         $this->config = $config;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AuthorizationRequestTransfer $authorizationRequestTransfer
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\AuthorizationRequestTransfer
-     */
     public function expand(
         AuthorizationRequestTransfer $authorizationRequestTransfer,
         GlueRequestTransfer $glueRequestTransfer
@@ -76,11 +66,6 @@ class ApiKeyAuthorizationRequestExpander implements ApiKeyAuthorizationRequestEx
         return $authorizationRequestTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return string|null
-     */
     protected function getApiKeyFromRequest(GlueRequestTransfer $glueRequestTransfer): ?string
     {
         $headers = $glueRequestTransfer->getMeta();
@@ -99,11 +84,6 @@ class ApiKeyAuthorizationRequestExpander implements ApiKeyAuthorizationRequestEx
         return null;
     }
 
-    /**
-     * @param string $apiKey
-     *
-     * @return \Generated\Shared\Transfer\ApiKeyCriteriaTransfer
-     */
     protected function getApiKeyCriteria(string $apiKey): ApiKeyCriteriaTransfer
     {
         $criteriaRangeFilterTransfer = (new CriteriaRangeFilterTransfer())

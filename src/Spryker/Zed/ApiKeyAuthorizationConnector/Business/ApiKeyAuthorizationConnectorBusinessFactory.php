@@ -28,9 +28,6 @@ class ApiKeyAuthorizationConnectorBusinessFactory extends AbstractBusinessFactor
      */
     protected const LOGGER_NAME = 'apiKeyAuthorizationLogger';
 
-    /**
-     * @return \Spryker\Zed\ApiKeyAuthorizationConnector\Business\Authorizer\ApiKeyAuthorizerInterface
-     */
     public function createApiKeyAuthorizer(): ApiKeyAuthorizerInterface
     {
         return new ApiKeyAuthorizer(
@@ -39,17 +36,11 @@ class ApiKeyAuthorizationConnectorBusinessFactory extends AbstractBusinessFactor
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ApiKeyAuthorizationConnector\Business\Logger\ApiKeyAuthorizationLoggerInterface
-     */
     public function createApiKeyAuthorizationLogger(): ApiKeyAuthorizationLoggerInterface
     {
         return new ApiKeyAuthorizationLogger($this->createLogger());
     }
 
-    /**
-     * @return \Psr\Log\LoggerInterface|null
-     */
     public function createLogger(): ?LoggerInterface
     {
         if (!$this->getConfig()->isLoggingEnabled()) {
@@ -61,9 +52,6 @@ class ApiKeyAuthorizationConnectorBusinessFactory extends AbstractBusinessFactor
         ]);
     }
 
-    /**
-     * @return \Monolog\Handler\HandlerInterface
-     */
     public function createBufferedStreamHandler(): HandlerInterface
     {
         return new BufferHandler(
@@ -71,9 +59,6 @@ class ApiKeyAuthorizationConnectorBusinessFactory extends AbstractBusinessFactor
         );
     }
 
-    /**
-     * @return \Monolog\Handler\HandlerInterface
-     */
     public function createStreamHandler(): HandlerInterface
     {
         return new StreamHandler($this->getConfig()->getLogFilepath());

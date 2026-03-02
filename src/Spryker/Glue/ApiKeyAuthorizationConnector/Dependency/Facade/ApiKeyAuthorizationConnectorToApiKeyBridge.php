@@ -26,11 +26,6 @@ class ApiKeyAuthorizationConnectorToApiKeyBridge implements ApiKeyAuthorizationC
         $this->apiKeyFacade = $apiKeyFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ApiKeyCriteriaTransfer $apiKeyCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ApiKeyCollectionTransfer
-     */
     public function getApiKeyCollection(ApiKeyCriteriaTransfer $apiKeyCriteriaTransfer): ApiKeyCollectionTransfer
     {
         return $this->apiKeyFacade->getApiKeyCollection($apiKeyCriteriaTransfer);

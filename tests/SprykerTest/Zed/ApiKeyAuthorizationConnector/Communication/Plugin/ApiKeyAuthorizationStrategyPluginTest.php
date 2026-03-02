@@ -28,9 +28,6 @@ class ApiKeyAuthorizationStrategyPluginTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testNotAutorizedWhenIdentifierIsMissing(): void
     {
         //Arrange
@@ -44,9 +41,6 @@ class ApiKeyAuthorizationStrategyPluginTest extends Unit
         $this->assertFalse($autorized);
     }
 
-    /**
-     * @return void
-     */
     public function testNotAutorizedWhenIdentifierIsWrong(): void
     {
         //Arrange
@@ -60,9 +54,6 @@ class ApiKeyAuthorizationStrategyPluginTest extends Unit
         $this->assertFalse($autorized);
     }
 
-    /**
-     * @return \Spryker\Zed\ApiKeyAuthorizationConnector\Communication\Plugin\Authorization\ApiKeyAuthorizationStrategyPlugin
-     */
     protected function getApiKeyAuthorizationStrategyPlugin(): ApiKeyAuthorizationStrategyPlugin
     {
         return new ApiKeyAuthorizationStrategyPlugin();
